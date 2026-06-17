@@ -7,11 +7,11 @@
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="15">
 
-            <Label Text="🎬 КИНО-РУЛЕТКА" FontSize="28" FontAttributes="Bold" HorizontalOptions="Center" TextColor="#E50914"/>
+            <Label Text="КИНО-РУЛЕТКА" FontSize="28" FontAttributes="Bold" HorizontalOptions="Center" TextColor="#E50914"/>
 
             <HorizontalStackLayout Spacing="10">
                 <Entry x:Name="MovieEntry" Placeholder="Название фильма..." HorizontalOptions="FillAndExpand" ReturnType="Done" Completed="OnMovieEntryCompleted"/>
-                <Button Text="➕" Clicked="OnAddMovieClicked" BackgroundColor="#E50914" WidthRequest="50"/>
+                <Button Text="Добавить" Clicked="OnAddMovieClicked" BackgroundColor="#E50914" WidthRequest="50"/>
             </HorizontalStackLayout>
 
             <Label x:Name="MoviesCountLabel" Text="Всего фильмов: 0" FontSize="14" TextColor="Gray" HorizontalOptions="End"/>
@@ -22,15 +22,15 @@
                         <Frame Padding="10" Margin="0,5" BorderColor="LightGray" CornerRadius="8">
                             <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
                                 <Label Text="{Binding .}" VerticalOptions="Center" HorizontalOptions="FillAndExpand" FontSize="16"/>
-                                <Button Text="✅" Clicked="OnMarkWatchedClicked" BackgroundColor="Transparent" TextColor="Green" WidthRequest="40"/>
-                                <Button Text="✕" Clicked="OnDeleteMovieClicked" BackgroundColor="Transparent" TextColor="Red" WidthRequest="40"/>
+                                <Button Text="V" Clicked="OnMarkWatchedClicked" BackgroundColor="Transparent" TextColor="Green" WidthRequest="40"/>
+                                <Button Text="X" Clicked="OnDeleteMovieClicked" BackgroundColor="Transparent" TextColor="Red" WidthRequest="40"/>
                             </HorizontalStackLayout>
                         </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-            <Button x:Name="SpinButton" Text="🎰 ВЫБРАТЬ ФИЛЬМ" Clicked="OnSpinClicked" BackgroundColor="#E50914" FontSize="18" FontAttributes="Bold" CornerRadius="10" HeightRequest="60"/>
+            <Button x:Name="SpinButton" Text="ВЫБРАТЬ ФИЛЬМ" Clicked="OnSpinClicked" BackgroundColor="#E50914" FontSize="18" FontAttributes="Bold" CornerRadius="10" HeightRequest="60"/>
 
             <Frame x:Name="ResultFrame" IsVisible="False" BackgroundColor="#2C2C2C" Padding="20" CornerRadius="10">
                 <VerticalStackLayout HorizontalOptions="Center">

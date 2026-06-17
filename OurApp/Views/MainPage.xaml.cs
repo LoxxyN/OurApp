@@ -79,12 +79,12 @@ namespace OurApp.Views
             SpinButton.IsEnabled = false;
             ResultFrame.IsVisible = true;
 
-            for (int i = 0; i < 15; i++)
+            for (int i = 0; i < 10; i++)
             {
                 int randomIndex = _random.Next(MovieManager.Movies.Count);
                 ResultLabel.Text = MovieManager.Movies[randomIndex];
 
-                if (i == 14)
+                if (i == 9)
                 {
                     ResultLabel.TextColor = Colors.Gold;
                     ResultLabel.FontSize = 28;
@@ -95,7 +95,7 @@ namespace OurApp.Views
                     ResultLabel.FontSize = 24;
                 }
 
-                int delay = 50 + (i * i * 8);
+                int delay = 40 + (i * i * 8);
                 await Task.Delay(delay);
             }
 

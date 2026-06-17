@@ -6,9 +6,16 @@
     xmlns:views="clr-namespace:OurApp.Views"
     Shell.FlyoutBehavior="Disabled">
 
-    <ShellContent
-        Title="Главная"
-        ContentTemplate="{DataTemplate views:MainPage}"
-        Route="MainPage" />
+
+    <TabBar>
+        <ShellContent
+            Title="Главная"
+            ContentTemplate="{DataTemplate views:MainPage}"
+            Route="MainPage" />
+        <ShellContent
+    Title="История"
+    ContentTemplate="{DataTemplate views:MainPage}"
+    Route="MainPage" />
+    </TabBar>
 
 </Shell>

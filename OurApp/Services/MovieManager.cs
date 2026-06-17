@@ -8,5 +8,6 @@ namespace OurApp.Services
     public static class MovieManager
     {
         public static ObservableCollection<string> Movies { get; } = new();
+        public static ObservableCollection<string> History { get; } = new();
     }
 }
