@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OurApp.Views.MainPage"
@@ -10,7 +10,7 @@
             <Label Text="КИНО-РУЛЕТКА" FontSize="28" FontAttributes="Bold" HorizontalOptions="Center" TextColor="#E50914"/>
 
             <HorizontalStackLayout Spacing="10">
-                <Entry x:Name="MovieEntry" Placeholder="Название фильма..." HorizontalOptions="FillAndExpand" ReturnType="Done" Completed="OnMovieEntryCompleted"/>
+                <Entry x:Name="MovieEntry" Placeholder="Название фильма..." HorizontalOptions="Fill" ReturnType="Done" Completed="OnMovieEntryCompleted"/>
                 <Button Text="Добавить" Clicked="OnAddMovieClicked" BackgroundColor="#E50914" WidthRequest="50"/>
             </HorizontalStackLayout>
 
@@ -19,25 +19,25 @@
             <CollectionView x:Name="MoviesCollectionView" HeightRequest="250">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame Padding="10" Margin="0,5" BorderColor="LightGray" CornerRadius="8">
+                        <Border  Padding="10" Margin="0,5" Stroke="LightGray" StrokeThickness="1" StrokeShape="RoundRectangle 8">
                             <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
-                                <Label Text="{Binding .}" VerticalOptions="Center" HorizontalOptions="FillAndExpand" FontSize="16"/>
+                                <Label Text="{Binding .}" VerticalOptions="Center" HorizontalOptions="Fill" FontSize="16"/>
                                 <Button Text="V" Clicked="OnMarkWatchedClicked" BackgroundColor="Transparent" TextColor="Green" WidthRequest="40"/>
                                 <Button Text="X" Clicked="OnDeleteMovieClicked" BackgroundColor="Transparent" TextColor="Red" WidthRequest="40"/>
                             </HorizontalStackLayout>
-                        </Frame>
+                        </Border>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-            <Button x:Name="SpinButton" Text="ВЫБРАТЬ ФИЛЬМ" Clicked="OnSpinClicked" BackgroundColor="#E50914" FontSize="18" FontAttributes="Bold" CornerRadius="10" HeightRequest="60"/>
+            <Button x:Name="SpinButton" Text="Выбрать случайный фильм" Clicked="OnSpinClicked" BackgroundColor="#E50914" FontSize="18" FontAttributes="Bold" CornerRadius="10" HeightRequest="60"/>
 
-            <Frame x:Name="ResultFrame" IsVisible="False" BackgroundColor="#2C2C2C" Padding="20" CornerRadius="10">
+            <Border x:Name="ResultFrame" IsVisible="False" BackgroundColor="#2C2C2C" Padding="20" StrokeShape="RoundRectangle 10">
                 <VerticalStackLayout HorizontalOptions="Center">
                     <Label Text="Вам выпал:" FontSize="16" TextColor="White" HorizontalOptions="Center"/>
                     <Label x:Name="ResultLabel" FontSize="24" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
                 </VerticalStackLayout>
-            </Frame>
+            </Border>
 
             <HorizontalStackLayout HorizontalOptions="Center">
                 <Button x:Name="ClearListButton" Text="🗑 Очистить список" Clicked="OnClearListClicked" BackgroundColor="Gray" IsVisible="False"/>
