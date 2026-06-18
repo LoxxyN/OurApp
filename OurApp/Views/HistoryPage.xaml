@@ -22,9 +22,9 @@
             <CollectionView x:Name="HistoryCollectionView" HeightRequest="400">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame Padding="10" Margin="0,5" BorderColor="LightGray" CornerRadius="8">
+                        <Border Padding="10" Margin="0,5" Stroke="LightGray" StrokeShape="8">
                             <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
-                                <Label Text="✅" 
+                                <Label Text="V" 
                                        VerticalOptions="Center" 
                                        FontSize="20"/>
                                 <Label Text="{Binding .}" 
@@ -32,7 +32,7 @@
                                        HorizontalOptions="Fill" 
                                        FontSize="16"/>
                             </HorizontalStackLayout>
-                        </Frame>
+                        </Border>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
