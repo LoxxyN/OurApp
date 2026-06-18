@@ -13,9 +13,8 @@
             ContentTemplate="{DataTemplate views:MainPage}"
             Route="MainPage" />
         <ShellContent
-    Title="История"
-    ContentTemplate="{DataTemplate views:MainPage}"
-    Route="MainPage" />
+            Title="История"
+            ContentTemplate="{DataTemplate views:HistoryPage}"
+            Route="HistoryPage" />
     </TabBar>
-
 </Shell>

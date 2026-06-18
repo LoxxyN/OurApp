@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
 using Microsoft.Maui.Controls;
 using OurApp.Services;
@@ -56,6 +56,7 @@ namespace OurApp.Views
         {
             if (sender is Button btn && btn.BindingContext is string movie)
             {
+                MovieManager.History.Add(movie);
                 MovieManager.Movies.Remove(movie);
                 UpdateUI();
             }
@@ -72,7 +73,7 @@ namespace OurApp.Views
         {
             if (MovieManager.Movies.Count == 0)
             {
-                await DisplayAlert("Внимание", "Сначала добавьте фильмы в список!", "ОК");
+                await DisplayAlertAsync("Внимание", "Сначала добавьте фильмы в список!", "ОК");
                 return;
             }
 
