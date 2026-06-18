@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Maui.Controls;
 using OurApp.Services;
@@ -32,15 +33,29 @@ namespace OurApp.Views
         private void OnAddMovieClicked(object sender, EventArgs e) => AddMovie();
         private void OnMovieEntryCompleted(object sender, EventArgs e) => AddMovie();
 
-        private void AddMovie()
+        private async void AddMovie()
         {
             var name = MovieEntry.Text?.Trim();
-            if (!string.IsNullOrEmpty(name))
+            if (string.IsNullOrEmpty(name))
+                return;
+
+            // Проверка на дубликат в списке фильмов
+            if (MovieManager.Movies.Any(m => m.Equals(name, StringComparison.OrdinalIgnoreCase)))
             {
-                MovieManager.Movies.Add(name);
-                MovieEntry.Text = string.Empty;
-                UpdateUI();
+                await DisplayAlertAsync("Дубликат", $"Фильм \"{name}\" уже есть в списке!", "ОК");
+                return;
             }
+
+            // Проверка на дубликат в истории
+            if (MovieManager.History.Any(m => m.Equals(name, StringComparison.OrdinalIgnoreCase)))
+            {
+                await DisplayAlertAsync("Уже просмотрен", $"Фильм \"{name}\" уже в истории просмотра!", "ОК");
+                return;
+            }
+
+            MovieManager.Movies.Add(name);
+            MovieEntry.Text = string.Empty;
+            UpdateUI();
         }
 
         private void OnDeleteMovieClicked(object sender, EventArgs e)

@@ -6,7 +6,6 @@
     xmlns:views="clr-namespace:OurApp.Views"
     Shell.FlyoutBehavior="Disabled">
 
-
     <TabBar>
         <ShellContent
             Title="Главная"

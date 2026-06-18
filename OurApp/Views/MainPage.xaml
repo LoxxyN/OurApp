@@ -2,47 +2,146 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OurApp.Views.MainPage"
-             Title="КИНО-РУЛЕТКА">
+             Title="Главная"
+             BackgroundColor="{StaticResource BlackColor}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="AccentColor">#eccacb</Color>
+            <Color x:Key="BlackColor">#3b3b3b</Color>
+            <Color x:Key="WhiteColor">#ececec</Color>
+            <x:Double x:Key="text-14">14</x:Double>
+            <x:Double x:Key="text-16">16</x:Double>
+            <x:Double x:Key="text-20">20</x:Double>
+            <x:Double x:Key="text-24">24</x:Double>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="15">
 
-            <Label Text="КИНО-РУЛЕТКА" FontSize="28" FontAttributes="Bold" HorizontalOptions="Center" TextColor="#E50914"/>
+            <Label Text="КИНО-РУЛЕТКА" FontSize="{StaticResource text-24}" FontAttributes="Bold" HorizontalOptions="Center" TextColor="{StaticResource AccentColor}"/>
 
-            <HorizontalStackLayout Spacing="10">
-                <Entry x:Name="MovieEntry" Placeholder="Название фильма..." HorizontalOptions="Fill" ReturnType="Done" Completed="OnMovieEntryCompleted"/>
-                <Button Text="Добавить" Clicked="OnAddMovieClicked" BackgroundColor="#E50914" WidthRequest="50"/>
-            </HorizontalStackLayout>
+            <Border Padding="10" Stroke="{StaticResource AccentColor}" StrokeThickness="1" StrokeShape="RoundRectangle 10" BackgroundColor="{StaticResource BlackColor}">
+                <HorizontalStackLayout Spacing="10">
+                    <Entry 
+                        x:Name="MovieEntry" 
+                        MinimumWidthRequest="150"
+                        Placeholder="Название фильма..."
+                        PlaceholderColor="{StaticResource AccentColor}"
+                        TextColor="{StaticResource WhiteColor}"
+                        HorizontalOptions="Fill" ReturnType="Done"
+                        Completed="OnMovieEntryCompleted"
+                        FontSize="{StaticResource text-16}"/>
+                    <Button 
+                        Text="Добавить" 
+                        Clicked="OnAddMovieClicked" 
+                        BackgroundColor="{StaticResource AccentColor}" 
+                        TextColor="{StaticResource BlackColor}"
+                        WidthRequest="150"
+                        CornerRadius="8"/>
+                </HorizontalStackLayout>
+            </Border>
 
-            <Label x:Name="MoviesCountLabel" Text="Всего фильмов: 0" FontSize="14" TextColor="Gray" HorizontalOptions="End"/>
+            <Label 
+                x:Name="MoviesCountLabel" 
+                Text="Всего фильмов: 0" 
+                FontSize="{StaticResource text-14}" 
+                TextColor="{StaticResource AccentColor}" 
+                HorizontalOptions="End"/>
 
             <CollectionView x:Name="MoviesCollectionView" HeightRequest="250">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Border  Padding="10" Margin="0,5" Stroke="LightGray" StrokeThickness="1" StrokeShape="RoundRectangle 8">
-                            <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
-                                <Label Text="{Binding .}" VerticalOptions="Center" HorizontalOptions="Fill" FontSize="16"/>
-                                <Button Text="V" Clicked="OnMarkWatchedClicked" BackgroundColor="Transparent" TextColor="Green" WidthRequest="40"/>
-                                <Button Text="X" Clicked="OnDeleteMovieClicked" BackgroundColor="Transparent" TextColor="Red" WidthRequest="40"/>
-                            </HorizontalStackLayout>
+                        <Border 
+                            Padding="10" 
+                            Margin="0,5" 
+                            Stroke="{StaticResource AccentColor}" 
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 8"
+                            BackgroundColor="{StaticResource BlackColor}">
+
+                            <Grid ColumnDefinitions="*, Auto">
+                                <Label 
+                                    Grid.Column="0"
+                                    Text="{Binding}" 
+                                    VerticalOptions="Center" 
+                                    FontSize="{StaticResource text-16}"
+                                    TextColor="{StaticResource WhiteColor}"
+                                    Margin="0,0,10,0"/>
+
+                                <VerticalStackLayout Grid.Column="1" Spacing="5" VerticalOptions="Center">
+                                    <Button 
+                                        Text="В историю" 
+                                        Clicked="OnMarkWatchedClicked" 
+                                        BackgroundColor="Transparent" 
+                                        FontSize="{StaticResource text-14}"
+                                        WidthRequest="120"
+                                        HorizontalOptions="End"/>
+                                    <Button 
+                                        Text="Удалить" 
+                                        Clicked="OnDeleteMovieClicked" 
+                                        BackgroundColor="Transparent" 
+                                        TextColor="#ff6b6b"
+                                        FontSize="{StaticResource text-14}"
+                                        WidthRequest="90"
+                                        HorizontalOptions="End"/>
+                                </VerticalStackLayout>
+                            </Grid>
+
                         </Border>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-            <Button x:Name="SpinButton" Text="Выбрать случайный фильм" Clicked="OnSpinClicked" BackgroundColor="#E50914" FontSize="18" FontAttributes="Bold" CornerRadius="10" HeightRequest="60"/>
+            <Button 
+                x:Name="SpinButton" 
+                Text="Выбрать фильм" 
+                Clicked="OnSpinClicked" 
+                BackgroundColor="{StaticResource AccentColor}" 
+                TextColor="{StaticResource BlackColor}"
+                FontSize="{StaticResource text-20}" 
+                FontAttributes="Bold" 
+                CornerRadius="12" 
+                HeightRequest="60"/>
 
-            <Border x:Name="ResultFrame" IsVisible="False" BackgroundColor="#2C2C2C" Padding="20" StrokeShape="RoundRectangle 10">
+            <Border 
+                x:Name="ResultFrame" 
+                IsVisible="False" 
+                BackgroundColor="{StaticResource BlackColor}" 
+                Padding="20" 
+                Stroke="{StaticResource AccentColor}"
+                StrokeThickness="2"
+                StrokeShape="RoundRectangle 12">
                 <VerticalStackLayout HorizontalOptions="Center">
-                    <Label Text="Вам выпал:" FontSize="16" TextColor="White" HorizontalOptions="Center"/>
-                    <Label x:Name="ResultLabel" FontSize="24" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                    <Label 
+                        Text="Сегодня смотрим: " 
+                        FontSize="{StaticResource text-16}" 
+                        TextColor="{StaticResource AccentColor}" 
+                        HorizontalOptions="Center"/>
+                    <Label 
+                        x:Name="ResultLabel" 
+                        FontSize="{StaticResource text-24}" 
+                        FontAttributes="Bold" 
+                        TextColor="{StaticResource WhiteColor}" 
+                        HorizontalOptions="Center" 
+                        HorizontalTextAlignment="Center"/>
                 </VerticalStackLayout>
             </Border>
 
-            <HorizontalStackLayout HorizontalOptions="Center">
-                <Button x:Name="ClearListButton" Text="🗑 Очистить список" Clicked="OnClearListClicked" BackgroundColor="Gray" IsVisible="False"/>
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+                <Button 
+                    x:Name="ClearListButton" 
+                    Text="Очистить" 
+                    Clicked="OnClearListClicked" 
+                    BackgroundColor="Transparent"
+                    BorderColor="{StaticResource AccentColor}"
+                    BorderWidth="1"
+                    TextColor="{StaticResource AccentColor}"
+                    CornerRadius="10"
+                    FontSize="{StaticResource text-14}"
+                    IsVisible="False"/>
             </HorizontalStackLayout>
-
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

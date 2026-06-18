@@ -2,35 +2,55 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OurApp.Views.HistoryPage"
-             Title="HistoryPage">
+             Title="История просмотра"
+             BackgroundColor="{StaticResource BlackColor}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="AccentColor">#eccacb</Color>
+            <Color x:Key="BlackColor">#3b3b3b</Color>
+            <Color x:Key="WhiteColor">#ececec</Color>
+            <x:Double x:Key="text-14">14</x:Double>
+            <x:Double x:Key="text-16">16</x:Double>
+            <x:Double x:Key="text-20">20</x:Double>
+            <x:Double x:Key="text-24">24</x:Double>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="15">
+        <VerticalStackLayout Padding="20" Spacing="14">
 
             <Label Text="История просмотра" 
-                   FontSize="24" 
+                   FontSize="{StaticResource text-24}" 
                    FontAttributes="Bold" 
                    HorizontalOptions="Center" 
-                   TextColor="#E50914"/>
+                   TextColor="{StaticResource AccentColor}"/>
 
             <Label x:Name="HistoryCountLabel" 
                    Text="Просмотрено: 0" 
-                   FontSize="14" 
-                   TextColor="Gray" 
+                   FontSize="{StaticResource text-14}" 
+                   TextColor="{StaticResource AccentColor}" 
                    HorizontalOptions="End"/>
 
             <CollectionView x:Name="HistoryCollectionView" HeightRequest="400">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Border Padding="10" Margin="0,5" Stroke="LightGray" StrokeShape="8">
+                        <Border Padding="10" 
+                                Margin="0,5" 
+                                Stroke="{StaticResource AccentColor}" 
+                                StrokeThickness="1"
+                                StrokeShape="RoundRectangle 8"
+                                BackgroundColor="{StaticResource BlackColor}">
                             <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
-                                <Label Text="V" 
+                                <Label Text="Просмотрен: "
+                                       TextColor="{StaticResource WhiteColor}"
                                        VerticalOptions="Center" 
-                                       FontSize="20"/>
-                                <Label Text="{Binding .}" 
+                                       FontSize="{StaticResource text-20}"/>
+                                <Label Text="{Binding}" 
                                        VerticalOptions="Center" 
                                        HorizontalOptions="Fill" 
-                                       FontSize="16"/>
+                                       FontSize="{StaticResource text-16}"
+                                       TextColor="{StaticResource WhiteColor}"/>
                             </HorizontalStackLayout>
                         </Border>
                     </DataTemplate>
@@ -38,15 +58,15 @@
             </CollectionView>
 
             <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
-                <Button Text="Назад" 
-                        Clicked="OnBackClicked" 
-                        BackgroundColor="#3498db" 
-                        TextColor="White"/>
                 <Button x:Name="ClearHistoryButton" 
                         Text="Очистить" 
                         Clicked="OnClearHistoryClicked" 
-                        BackgroundColor="Gray" 
-                        TextColor="White"
+                        BackgroundColor="Transparent"
+                        BorderColor="{StaticResource AccentColor}"
+                        BorderWidth="1"
+                        TextColor="{StaticResource AccentColor}"
+                        CornerRadius="10"
+                        FontSize="{StaticResource text-14}"
                         IsVisible="False"/>
             </HorizontalStackLayout>
 
