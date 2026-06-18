@@ -9,13 +9,12 @@
 
     <TabBar>
         <ShellContent
-            Title="Главная"
-            ContentTemplate="{DataTemplate views:MainPage}"
+            Title="Home"
+            ContentTemplate="{DataTemplate local:MainPage}"
             Route="MainPage" />
         <ShellContent
-    Title="История"
-    ContentTemplate="{DataTemplate views:MainPage}"
-    Route="MainPage" />
+            Title="Home"
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Route="MainPage" />
     </TabBar>
-
 </Shell>
