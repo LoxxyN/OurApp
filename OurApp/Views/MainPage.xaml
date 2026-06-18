@@ -26,7 +26,7 @@
             <CollectionView x:Name="MoviesCollectionView" HeightRequest="250" >
                 <CollectionView.ItemTemplate>
                     <DataTemplate >
-                        <Frame Padding="10" Margin="0,5" BorderColor="LightGray" BackgroundColor="#E0B1CB" CornerRadius="8" >
+                        <Frame Padding="10" Margin="0,5" BorderColor="LightGray" BackgroundColor="#E0B1CC" CornerRadius="8" >
                             <HorizontalStackLayout Spacing="10" VerticalOptions="Center" >
                                 <Label Text="{Binding .}" VerticalOptions="Center" HorizontalOptions="Fill" FontSize="16"/>
                                 <Button Text="✔️" Clicked="OnMarkWatchedClicked" BackgroundColor="Transparent" TextColor="Green" WidthRequest="40"/>
