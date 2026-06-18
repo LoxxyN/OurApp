@@ -20,7 +20,7 @@
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="15">
 
-            <Label Text="КИНО-РУЛЕТКА" FontSize="{StaticResource text-24}" FontAttributes="Bold" HorizontalOptions="Center" TextColor="{StaticResource AccentColor}"/>
+            <Label Text="LITRouletter" FontSize="{StaticResource text-24}" FontAttributes="Bold" HorizontalOptions="Center" TextColor="{StaticResource AccentColor}"/>
 
             <Border Padding="10" Stroke="{StaticResource AccentColor}" StrokeThickness="1" StrokeShape="RoundRectangle 10" BackgroundColor="{StaticResource BlackColor}">
                 <HorizontalStackLayout Spacing="10">
