@@ -17,5 +17,4 @@
             ContentTemplate="{DataTemplate views:HistoryPage}"
             Route="HistoryPage" />
     </TabBar>
-
 </Shell>
