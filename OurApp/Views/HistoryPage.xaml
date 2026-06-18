@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OurApp.Views.HistoryPage"
+             Title="HistoryPage">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <Label Text="История просмотра" 
+                   FontSize="24" 
+                   FontAttributes="Bold" 
+                   HorizontalOptions="Center" 
+                   TextColor="#E50914"/>
+
+            <Label x:Name="HistoryCountLabel" 
+                   Text="Просмотрено: 0" 
+                   FontSize="14" 
+                   TextColor="Gray" 
+                   HorizontalOptions="End"/>
+
+            <CollectionView x:Name="HistoryCollectionView" HeightRequest="400">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="10" Margin="0,5" BorderColor="LightGray" CornerRadius="8">
+                            <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                                <Label Text="✅" 
+                                       VerticalOptions="Center" 
+                                       FontSize="20"/>
+                                <Label Text="{Binding .}" 
+                                       VerticalOptions="Center" 
+                                       HorizontalOptions="Fill" 
+                                       FontSize="16"/>
+                            </HorizontalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+                <Button Text="Назад" 
+                        Clicked="OnBackClicked" 
+                        BackgroundColor="#3498db" 
+                        TextColor="White"/>
+                <Button x:Name="ClearHistoryButton" 
+                        Text="Очистить" 
+                        Clicked="OnClearHistoryClicked" 
+                        BackgroundColor="Gray" 
+                        TextColor="White"
+                        IsVisible="False"/>
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

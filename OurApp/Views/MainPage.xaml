@@ -10,7 +10,7 @@
             <Label Text="КИНО-РУЛЕТКА" FontSize="28" FontAttributes="Bold" HorizontalOptions="Center" TextColor="#E50914"/>
 
             <HorizontalStackLayout Spacing="10">
-                <Entry x:Name="MovieEntry" Placeholder="Название фильма..." HorizontalOptions="FillAndExpand" ReturnType="Done" Completed="OnMovieEntryCompleted"/>
+                <Entry x:Name="MovieEntry" Placeholder="Название фильма..." HorizontalOptions="Fill" ReturnType="Done" Completed="OnMovieEntryCompleted"/>
                 <Button Text="Добавить" Clicked="OnAddMovieClicked" BackgroundColor="#E50914" WidthRequest="50"/>
             </HorizontalStackLayout>
 
@@ -21,7 +21,7 @@
                     <DataTemplate>
                         <Frame Padding="10" Margin="0,5" BorderColor="LightGray" CornerRadius="8">
                             <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
-                                <Label Text="{Binding .}" VerticalOptions="Center" HorizontalOptions="FillAndExpand" FontSize="16"/>
+                                <Label Text="{Binding .}" VerticalOptions="Center" HorizontalOptions="Fill" FontSize="16"/>
                                 <Button Text="V" Clicked="OnMarkWatchedClicked" BackgroundColor="Transparent" TextColor="Green" WidthRequest="40"/>
                                 <Button Text="X" Clicked="OnDeleteMovieClicked" BackgroundColor="Transparent" TextColor="Red" WidthRequest="40"/>
                             </HorizontalStackLayout>
