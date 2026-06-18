@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OurApp.Views.MainPage"
@@ -30,7 +30,7 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-            <Button x:Name="SpinButton" Text="ВЫБРАТЬ ФИЛЬМ" Clicked="OnSpinClicked" BackgroundColor="#E50914" FontSize="18" FontAttributes="Bold" CornerRadius="10" HeightRequest="60"/>
+            <Button x:Name="SpinButton" Text="Выбрать случайный фильм" Clicked="OnSpinClicked" BackgroundColor="#E50914" FontSize="18" FontAttributes="Bold" CornerRadius="10" HeightRequest="60"/>
 
             <Border x:Name="ResultFrame" IsVisible="False" BackgroundColor="#2C2C2C" Padding="20" StrokeShape="RoundRectangle 10">
                 <VerticalStackLayout HorizontalOptions="Center">

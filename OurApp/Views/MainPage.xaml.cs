@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
 using Microsoft.Maui.Controls;
 using OurApp.Services;
@@ -60,11 +60,6 @@ namespace OurApp.Views
                 MovieManager.Movies.Remove(movie);
                 UpdateUI();
             }
-        }
-
-        private void OnHistoryClicked(object sender, EventArgs e)
-        {
-            Shell.Current.GoToAsync(nameof(HistoryPage));
         }
 
         private void OnClearListClicked(object sender, EventArgs e)
