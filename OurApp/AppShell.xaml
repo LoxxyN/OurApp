@@ -15,5 +15,9 @@
             Title="История"
             ContentTemplate="{DataTemplate views:HistoryPage}"
             Route="HistoryPage" />
+        <ShellContent
+            Title="Топ 20"
+            ContentTemplate="{DataTemplate views:Top20FilmsPage}"
+            Route="Top20FilmsPage" />
     </TabBar>
 </Shell>
