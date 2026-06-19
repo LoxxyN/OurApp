@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OurApp.Views.Top20FilmsPage"
+             Title="Топ 20 лучших фильмов"
+             BackgroundColor="{StaticResource BlackColor}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="AccentColor">#eccacb</Color>
+            <Color x:Key="BlackColor">#3b3b3b</Color>
+            <Color x:Key="CardBgColor">#252932</Color>
+            <Color x:Key="WhiteColor">#ececec</Color>
+            <Color x:Key="MutedTextColor">#8a8f99</Color>
+
+            <x:Double x:Key="text-14">14</x:Double>
+            <x:Double x:Key="text-16">16</x:Double>
+            <x:Double x:Key="text-24">24</x:Double>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="Auto, *, Auto" Padding="0 , 5" BackgroundColor="{StaticResource BlackColor}">
+
+        <VerticalStackLayout Grid.Row="0" Padding="20, 10" Spacing="4" HorizontalOptions="Center">
+            <Label
+                TextColor="{StaticResource WhiteColor}"
+                FontSize="{StaticResource text-24}"
+                FontAttributes="Bold"
+                Text="Топ 20 лучших фильмов"
+                HorizontalTextAlignment="Center" />
+            <Label
+                TextColor="{StaticResource AccentColor}"
+                FontSize="{StaticResource text-14}"
+                Text="2025-2026 год"
+                HorizontalTextAlignment="Center" />
+        </VerticalStackLayout>
+
+        <CarouselView Grid.Row="1" 
+                      x:Name="FilmsCarousel"
+                      PeekAreaInsets="10"
+                      Loop="False"
+                      IndicatorView="FilmsIndicator">
+            <CarouselView.ItemsLayout>
+                <LinearItemsLayout Orientation="Horizontal" ItemSpacing="12" />
+            </CarouselView.ItemsLayout>
+
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Border Padding="0" 
+                            Margin="5, 10"
+                            StrokeShape="RoundRectangle 16" 
+                            Stroke="Transparent" 
+                            BackgroundColor="{StaticResource CardBgColor}"
+                            WidthRequest="270"
+                            HeightRequest="420"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center">
+
+                        <Grid RowDefinitions="*, Auto">
+                            <!-- ✅ Исправлено: просто Source, без UriImageSource -->
+                            <Image Grid.Row="0" 
+                                   Aspect="AspectFill"
+                                   HorizontalOptions="Fill"
+                                   VerticalOptions="Fill"
+                                   Source="{Binding ImageUrl}" />
+
+                            <VerticalStackLayout Grid.Row="1" 
+                                                 Padding="12" 
+                                                 Spacing="4" 
+                                                 BackgroundColor="{StaticResource CardBgColor}">
+                                <Label Text="{Binding Title}" 
+                                       TextColor="{StaticResource WhiteColor}" 
+                                       FontSize="{StaticResource text-16}" 
+                                       FontAttributes="Bold" 
+                                       MaxLines="1" 
+                                       LineBreakMode="TailTruncation"/>
+                                <Label Text="{Binding YearAndGenre}" 
+                                       TextColor="{StaticResource MutedTextColor}" 
+                                       FontSize="{StaticResource text-14}" />
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+
+        <IndicatorView Grid.Row="2" 
+                       x:Name="FilmsIndicator"
+                       HorizontalOptions="Center"
+                       Margin="0,10,0,10"
+                       IndicatorColor="{StaticResource MutedTextColor}"
+                       SelectedIndicatorColor="{StaticResource AccentColor}" />
+
+    </Grid>
+</ContentPage>
